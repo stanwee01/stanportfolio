@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stan P — Graphic Designer</title>
+  <meta name="description" content="Stan Parreño — Graphic Designer based in Cagayan de Oro, Philippines. Illustration, UI/UX, presentations, 3D visualization and WebGL." />
+  <meta property="og:title" content="Stan P — Graphic Designer" />
+  <meta property="og:description" content="14+ years of illustration, branding, UI/UX, 3D and motion work." />
+  <meta property="og:image" content="assets/img/viana-splash-v3.png" />
+  <link rel="icon" href="assets/img/pic.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#top">Stan<span>.</span>P</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#webgl">WebGL</a>
+      <a href="#about">About</a>
+      <a class="btn btn-sm" href="#contact">Let's talk</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Graphic Designer · Philippines</p>
+        <h1>Hi! I'm Stan.<br /><em>I turn ideas into visuals</em> that help brands stand out.</h1>
+        <p class="lead">14+ years across branding, digital and print design, 2D/3D animation, UI/UX and video editing.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#work">See my work</a>
+          <a class="btn btn-ghost" href="mailto:stanweep@gmail.com">stanweep@gmail.com</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img class="hero-main" src="assets/img/viana-splash-v3.png" alt="Viana splash illustration" />
+        <img class="hero-sticker s1" src="assets/img/screenshot-2025-10-17-014152.png" alt="" />
+        <img class="hero-sticker s2" src="assets/img/screenshot-2026-02-12-002027.png" alt="" />
+      </div>
+    </section>
+
+    <section class="marquee" aria-hidden="true">
+      <div class="track">
+        <span>Illustration</span><span>UI / UX</span><span>Presentations</span><span>3D Visualization</span><span>WebGL</span><span>Branding</span><span>Animation</span><span>Video Editing</span>
+        <span>Illustration</span><span>UI / UX</span><span>Presentations</span><span>3D Visualization</span><span>WebGL</span><span>Branding</span><span>Animation</span><span>Video Editing</span>
+      </div>
+    </section>
+
+    <section id="work" class="work">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <div class="filters" role="tablist" aria-label="Filter projects"></div>
+      </div>
+      <p class="tools" id="tools"></p>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="webgl" class="webgl">
+      <div class="webgl-copy">
+        <p class="eyebrow">Featured · WebGL</p>
+        <h2>Babylon.js 3D project portal</h2>
+        <p>A real-time 3D viewer that runs in the browser. You pick a scene, such as an event venue floorplan or a server cabinet, and explore it: orbit, zoom and pan, toggle layers like floorplan, props and sensors, play animations, and switch views, shadows and themes.</p>
+        <ul class="chips"><li>WebGL</li><li>Babylon.js</li><li>Blender 3D</li><li>Real-time 3D</li></ul>
+      </div>
+      <div class="video-frame">
+        <video controls preload="metadata" playsinline poster="assets/video/webgl-poster.jpg">
+          <source src="assets/video/stanly-webgl.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <img class="portrait" src="assets/img/pic.png" alt="Portrait of Stan" />
+      <div>
+        <h2>About me</h2>
+        <p>I'm a Graphic Designer based in the Philippines with over 14 years of experience creating visuals that communicate, engage, and inspire. My work spans branding, digital and print design, and extends into 2D/3D animation, UI/UX design, and video editing.</p>
+        <p>I love turning ideas into visuals that help brands stand out and connect with their audience. Let's collaborate and bring your next creative vision to life!</p>
+        <h3>Toolkit</h3>
+        <ul class="chips">
+          <li>Adobe Illustrator</li><li>Paint Tool SAI</li><li>Figma</li><li>Blender 3D</li><li>Adobe After Effects</li><li>Google Slides</li><li>Canva</li><li>WebGL</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Have a project in mind?</h2>
+      <a class="big-mail" href="mailto:stanweep@gmail.com">stanweep@gmail.com</a>
+      <div class="contact-meta">
+        <div><h3>Based in</h3><p>Cagayan de Oro, Philippines</p></div>
+        <div><h3>Hours</h3><p>Monday–Friday<br />9am – 6pm PHT</p></div>
+        <div><h3>Social</h3><p><a href="https://www.linkedin.com/in/stanly-parreno-712b6a92/" target="_blank" rel="noopener">LinkedIn ↗</a></p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Stan P</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox">
+    <button class="lb-close" aria-label="Close">×</button>
+    <button class="lb-nav lb-prev" aria-label="Previous">‹</button>
+    <figure>
+      <img id="lb-img" alt="" />
+      <figcaption id="lb-cap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" aria-label="Next">›</button>
+  </dialog>
+
+  <script src="works.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
