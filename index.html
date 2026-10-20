@@ -20,6 +20,7 @@
     <nav>
       <a href="#work">Work</a>
       <a href="#webgl">WebGL</a>
+      <a href="#motion">Motion</a>
       <a href="#about">About</a>
       <a class="btn btn-sm" href="#contact">Let's talk</a>
     </nav>
@@ -67,10 +68,20 @@
         <ul class="chips"><li>WebGL</li><li>Babylon.js</li><li>Blender 3D</li><li>Real-time 3D</li></ul>
       </div>
       <div class="video-frame">
-        <video controls preload="metadata" playsinline poster="assets/video/webgl-poster.jpg">
+        <video controls preload="metadata" playsinline poster="assets/video/webgl-poster.jpg" controlslist="nodownload" disablepictureinpicture>
           <source src="assets/video/stanly-webgl.mp4" type="video/mp4" />
         </video>
       </div>
+    </section>
+
+    <section id="motion" class="motion">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Motion · 2D & 3D animation</p>
+          <h2>Motion & animation</h2>
+        </div>
+      </div>
+      <div class="reel" id="reel"></div>
     </section>
 
     <section id="about" class="about">
@@ -110,6 +121,14 @@
       <figcaption id="lb-cap"></figcaption>
     </figure>
     <button class="lb-nav lb-next" aria-label="Next">›</button>
+  </dialog>
+
+  <dialog class="lightbox player" id="player">
+    <button class="lb-close" aria-label="Close">×</button>
+    <figure>
+      <div class="player-stage" id="player-stage"></div>
+      <figcaption id="player-cap"></figcaption>
+    </figure>
   </dialog>
 
   <script src="works.js"></script>
