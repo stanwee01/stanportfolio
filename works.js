@@ -57,22 +57,27 @@ const WORKS = [
   { cat: "webgl", file: "../video/webgl-poster.jpg", size: [1600,900], title: "Babylon.js 3D project portal", href: "#webgl" },
 ];
 
-// AI-assisted rendering: my rough input (sketch image or low-poly video) and the AI-enhanced result.
-// Files live in assets/ai/. `input.type` is "image" or "video".
+// AI-assisted rendering: my rough input (sketch or low-poly 3D) and the AI-enhanced result.
+// Files live in assets/ai/. `type` is "image" (give the full file name)
+// or "video" (give the name without .mp4; expects <name>-poster.jpg too).
 const AI_PROJECTS = [
   {
+    title: "City intersection",
+    summary: "A colored isometric sketch of a street corner, rendered by AI into a detailed 3D city scene.",
+    input: { type: "image", file: "city.jpg", label: "Rough sketch" },
+    output: { type: "image", file: "city-ai.jpg", label: "AI render" },
+  },
+  {
     title: "Community plaza",
-    summary:
-      "I sketched the plaza layout by hand, noting the ramp, stairs, slope and seating, then used AI to turn it into a fully rendered 3D flythrough.",
+    summary: "A hand-drawn plaza layout with ramp, stairs and slope notes, turned into a rendered 3D flythrough.",
     input: { type: "image", file: "plaza-sketch.jpg", label: "Rough sketch" },
-    output: { file: "plaza-ai", label: "AI-rendered video" },
+    output: { type: "video", file: "plaza-ai", label: "AI video" },
   },
   {
     title: "Retail people-counting demo",
-    summary:
-      "I blocked out the room and animated a character in low-poly 3D, then used AI to render it as a furnished clothing store with people-tracking overlays.",
-    input: { type: "video", file: "scene-lowpoly", label: "Low-poly 3D composition" },
-    output: { file: "scene-ai", label: "AI-rendered video" },
+    summary: "A low-poly room and character animation, rendered as a furnished store with people-tracking overlays.",
+    input: { type: "video", file: "scene-lowpoly", label: "Low-poly 3D" },
+    output: { type: "video", file: "scene-ai", label: "AI video" },
   },
 ];
 

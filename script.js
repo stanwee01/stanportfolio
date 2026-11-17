@@ -70,30 +70,41 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") step(-1);
 });
 
-// AI-assisted rendering: input and AI output side by side, as short muted loops
+// AI-assisted rendering: AI result large, my input as a corner inset; clicking the inset swaps them
 const aiList = document.getElementById("ai-list");
 
-function loopVideo(file) {
-  return `<video src="assets/ai/${file}.mp4" poster="assets/ai/${file}-poster.jpg" autoplay muted loop playsinline
-    preload="metadata" controlslist="nodownload" disablepictureinpicture></video>`;
+function aiMedia(m, title) {
+  return m.type === "image"
+    ? `<img src="assets/ai/${m.file}" alt="${m.label}: ${title}" loading="lazy" />`
+    : `<video src="assets/ai/${m.file}.mp4" poster="assets/ai/${m.file}-poster.jpg" autoplay muted loop playsinline
+        preload="metadata" controlslist="nodownload" disablepictureinpicture></video>`;
 }
 
 AI_PROJECTS.forEach((p, i) => {
-  const input = p.input.type === "image"
-    ? `<img src="assets/ai/${p.input.file}" alt="${p.input.label}: ${p.title}" loading="lazy" />`
-    : loopVideo(p.input.file);
   const el = document.createElement("article");
-  el.className = "ai-project";
+  el.className = "ai-card";
   el.innerHTML = `
-    <header>
+    <div class="ai-stage">
+      <div class="ai-main">${aiMedia(p.output, p.title)}</div>
+      <span class="ai-tag">✦ ${p.output.label}</span>
+      <button class="ai-inset" aria-label="Swap input and AI render">
+        ${aiMedia(p.input, p.title)}
+        <span>${p.input.label} ⇄</span>
+      </button>
+    </div>
+    <div class="ai-info">
       <span class="ai-num">${String(i + 1).padStart(2, "0")}</span>
       <div><h3>${p.title}</h3><p>${p.summary}</p></div>
-    </header>
-    <div class="ai-compare">
-      <figure class="ai-pane"><div class="ai-media">${input}</div><figcaption>${p.input.label}</figcaption></figure>
-      <span class="ai-arrow" aria-hidden="true">→</span>
-      <figure class="ai-pane ai-out"><div class="ai-media">${loopVideo(p.output.file)}</div><figcaption>✦ ${p.output.label}</figcaption></figure>
     </div>`;
+
+  let swapped = false;
+  el.querySelector(".ai-inset").addEventListener("click", () => {
+    swapped = !swapped;
+    const [big, small] = swapped ? [p.input, p.output] : [p.output, p.input];
+    el.querySelector(".ai-main").innerHTML = aiMedia(big, p.title);
+    el.querySelector(".ai-tag").textContent = (swapped ? "" : "✦ ") + big.label;
+    el.querySelector(".ai-inset").innerHTML = `${aiMedia(small, p.title)}<span>${small.label} ⇄</span>`;
+  });
   aiList.appendChild(el);
 });
 
