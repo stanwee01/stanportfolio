@@ -57,6 +57,25 @@ const WORKS = [
   { cat: "webgl", file: "../video/webgl-poster.jpg", size: [1600,900], title: "Babylon.js 3D project portal", href: "#webgl" },
 ];
 
+// AI-assisted rendering: my rough input (sketch image or low-poly video) and the AI-enhanced result.
+// Files live in assets/ai/. `input.type` is "image" or "video".
+const AI_PROJECTS = [
+  {
+    title: "Community plaza",
+    summary:
+      "I sketched the plaza layout by hand, noting the ramp, stairs, slope and seating, then used AI to turn it into a fully rendered 3D flythrough.",
+    input: { type: "image", file: "plaza-sketch.jpg", label: "Rough sketch" },
+    output: { file: "plaza-ai", label: "AI-rendered video" },
+  },
+  {
+    title: "Retail people-counting demo",
+    summary:
+      "I blocked out the room and animated a character in low-poly 3D, then used AI to render it as a furnished clothing store with people-tracking overlays.",
+    input: { type: "video", file: "scene-lowpoly", label: "Low-poly 3D composition" },
+    output: { file: "scene-ai", label: "AI-rendered video" },
+  },
+];
+
 // Motion & animation reel. Use `youtube` (video id) or `video` (file in assets/video/).
 const MOTION = [
   {

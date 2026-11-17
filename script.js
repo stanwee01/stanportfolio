@@ -70,6 +70,33 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") step(-1);
 });
 
+// AI-assisted rendering: input and AI output side by side, as short muted loops
+const aiList = document.getElementById("ai-list");
+
+function loopVideo(file) {
+  return `<video src="assets/ai/${file}.mp4" poster="assets/ai/${file}-poster.jpg" autoplay muted loop playsinline
+    preload="metadata" controlslist="nodownload" disablepictureinpicture></video>`;
+}
+
+AI_PROJECTS.forEach((p, i) => {
+  const input = p.input.type === "image"
+    ? `<img src="assets/ai/${p.input.file}" alt="${p.input.label}: ${p.title}" loading="lazy" />`
+    : loopVideo(p.input.file);
+  const el = document.createElement("article");
+  el.className = "ai-project";
+  el.innerHTML = `
+    <header>
+      <span class="ai-num">${String(i + 1).padStart(2, "0")}</span>
+      <div><h3>${p.title}</h3><p>${p.summary}</p></div>
+    </header>
+    <div class="ai-compare">
+      <figure class="ai-pane"><div class="ai-media">${input}</div><figcaption>${p.input.label}</figcaption></figure>
+      <span class="ai-arrow" aria-hidden="true">→</span>
+      <figure class="ai-pane ai-out"><div class="ai-media">${loopVideo(p.output.file)}</div><figcaption>✦ ${p.output.label}</figcaption></figure>
+    </div>`;
+  aiList.appendChild(el);
+});
+
 // Motion reel
 const reel = document.getElementById("reel");
 const player = document.getElementById("player");
